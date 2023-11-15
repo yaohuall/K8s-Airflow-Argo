@@ -1,4 +1,10 @@
 ## Using ArgoCD deploy Airflow cluster to remote cluster
+### Framework version
+- **K3s**: v1.27.7+k3s2+fannel channel
+- **Airflow**: Airflow user-community Helm Chart 8.8.0
+  - app version: 2.7.1
+- **ArgoCD**: Argo-helm Chart 5.30.0
+  - app version: 2.90.0
 
 #### When installing the official airflow Chart with Argo CD, Flux, Rancher or Terraform, database migration job is not starting
 - MUST set the four following values, or your application will not start as the migrations will not be run:
