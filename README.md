@@ -28,6 +28,8 @@ migrateDatabaseJob:
 
 > :grey_exclamation:    A argocd-manager role & rolebinding & token secret will be added to external cluster.
 
+### ArgoCD Chart deploy with values.yaml
+- To use ArgoCD multi sources, install latest version.
    
 ### Reference
 - https://airflow.apache.org/docs/helm-chart/stable/index.html
