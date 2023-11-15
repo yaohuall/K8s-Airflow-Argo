@@ -28,9 +28,12 @@ migrateDatabaseJob:
 
 > :grey_exclamation:    A argocd-manager role & rolebinding & token secret will be added to external cluster.
 
-### ArgoCD Chart deploy with values.yaml
+### ArgoCD trouble-shooting
+#### Chart deploy with values.yaml
 - To use ArgoCD multi sources, install latest version.
-   
+#### Overally delete application
+```kubectl patch application/airflow --type json --patch='[ { "op": "remove", "path": "/metadata/finalizers" } ]'```
+
 ### Reference
 - https://airflow.apache.org/docs/helm-chart/stable/index.html
 - https://stackoverflow.com/questions/61462892/how-to-change-users-in-kubectl
