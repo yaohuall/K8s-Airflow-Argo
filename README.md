@@ -1,4 +1,9 @@
 ## Using ArgoCD deploy Airflow cluster to remote cluster
+
+### Prerequisite
+- **Helm Chart**: v3.12.0
+- **Terraform**: v1.6.1 on linux_amd64
+
 ### Framework version
 - **K3s**: v1.27.7+k3s2+fannel channel
 - **Airflow**: Airflow user-community Helm Chart 8.8.0
