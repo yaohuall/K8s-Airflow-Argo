@@ -12,11 +12,15 @@ migrateDatabaseJob:
   applyCustomEnv: false
 ```
 
-#### Kubectl add external cluster and context
+#### Kubectl and ArgoCD add external cluster and context
 1. Edit kube config file and add certificate info of external cluster to local cluster.
 2. Change context ```kubectl config use-context <your-context>```
+3. Run ArgoCD CLI
+   ```argocd cluster add <your-context>```
    
-:zap:   Users and clusters are tied to a context and can change users and clusters by changing the context.
+> :grey_exclamation:    Users and clusters are tied to a context and can change users and clusters by changing the context.
+
+> :grey_exclamation:    A argocd-manager role & rolebinding & token secret will be added to external cluster.
 
    
 ### Reference
