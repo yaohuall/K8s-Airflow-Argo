@@ -40,5 +40,6 @@ migrateDatabaseJob:
 
 ### Reference
 - https://airflow.apache.org/docs/helm-chart/stable/index.html
+- https://github.com/airflow-helm/charts/tree/main/charts/airflow
 - https://stackoverflow.com/questions/61462892/how-to-change-users-in-kubectl
 - https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
