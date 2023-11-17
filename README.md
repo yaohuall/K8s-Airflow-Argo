@@ -45,6 +45,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 - Run ```kubectl apply -f airflow-app.yaml```
   - You can config node-port/ingress settings in values.yaml in root path.
   - You can connect external database in production environment.
+  - You can specify gitsync function in values.yaml in root path.
 
 ### ArgoCD trouble-shooting
 #### Chart deploy with values.yaml
