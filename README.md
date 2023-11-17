@@ -3,6 +3,8 @@
 ### Prerequisite
 - **Helm Chart**: v3.12.0
 - **Terraform**: v1.6.1 on linux_amd64
+### Need to update
+1. Secret management
 
 ### Framework version
 - **K3s**: v1.27.7+k3s2+fannel channel
@@ -37,6 +39,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 > :grey_exclamation:    Users and clusters are tied to a context and can change users and clusters by changing the context.
 
 > :grey_exclamation:    A argocd-manager role & rolebinding & token secret will be added to external cluster.
+
+#### Deploy Airflow
+- Run ```kubectl apply -f airflow-app.yaml```
+  - You can config node-port/ingress settings in values.yaml in root path.
+  - You can connect external database in production environment.
 
 ### ArgoCD trouble-shooting
 #### Chart deploy with values.yaml
