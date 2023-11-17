@@ -12,7 +12,8 @@
   - app version: 2.7.1
 - **ArgoCD**: Argo-helm Chart 5.30.0
   - app version: 2.90.0
-    
+
+### How to implement this repo?
 #### Install ArgoCD with Terraform
 1. Config your terraform backend in argocd/main.tf
    
