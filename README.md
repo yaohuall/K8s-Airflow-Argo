@@ -10,7 +10,24 @@
   - app version: 2.7.1
 - **ArgoCD**: Argo-helm Chart 5.30.0
   - app version: 2.90.0
-
+    
+#### Install ArgoCD with Terraform
+1. Config your terraform backend in argocd/main.tf
+   
+```
+terraform {
+ backend "s3" {
+   bucket         = "<your-tfstate-bucket>""
+   key            = "<your-bucket-key>""
+   region         = "<your-aws-region>"
+ }
+}
+```
+2. Run ```terraform init``` and  ```terraform apply --auto-approve```
+3. Get ArgoCD UI password
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
 #### Kubectl and ArgoCD add external cluster and context
 1. Edit kube config file and add certificate info of external cluster to local cluster.
 2. Change context ```kubectl config use-context <your-context>```
