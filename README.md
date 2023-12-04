@@ -50,23 +50,33 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ### ArgoCD trouble-shooting
 #### Chart deploy with values.yaml
-- To use ArgoCD multi sources, install latest version.
+- Use ArgoCD multi sources, install latest version.
 #### Overally delete application
 ```kubectl patch application/airflow --type json --patch='[ { "op": "remove", "path": "/metadata/finalizers" } ]'```
+#### Airflow logging using AWS S3
+- Set AWS connection secrets in Chart/values.yaml.
+- Set Airflow logging config.
+  ``` airflow:
+      config:
+        AIRFLOW__LOGGING__REMOTE_LOGGING: "True"
+        AIRFLOW__LOGGING__REMOTE_BASE_LOG_FOLDER: "s3://<<MY_BUCKET_NAME>>/airflow/logs"
+        AIRFLOW__LOGGING__REMOTE_LOG_CONN_ID: "my_aws"
+  ```
 #### When installing the official airflow Chart with Argo CD, Flux, Rancher or Terraform, database migration job is not starting
 - MUST set the four following values, or your application will not start as the migrations will not be run:
 
-```
-createUserJob:
-  useHelmHooks: false
-  applyCustomEnv: false
-migrateDatabaseJob:
-  useHelmHooks: false
-  applyCustomEnv: false
-```
+  ```
+  createUserJob:
+    useHelmHooks: false
+    applyCustomEnv: false
+  migrateDatabaseJob:
+    useHelmHooks: false
+    applyCustomEnv: false
+  ```
 
 ### Reference
 - https://airflow.apache.org/docs/helm-chart/stable/index.html
 - https://github.com/airflow-helm/charts/tree/main/charts/airflow
 - https://stackoverflow.com/questions/61462892/how-to-change-users-in-kubectl
 - https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
+- https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/dags/airflow-connections.md
