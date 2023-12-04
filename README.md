@@ -42,10 +42,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 > :grey_exclamation:    A argocd-manager role & rolebinding & token secret will be added to external cluster.
 
 #### Deploy Airflow
+- Airflow Chart is in Chart dir in this example, or you can specify Airflow repo url in airflow-app.yaml.
 - Run ```kubectl apply -f airflow-app.yaml```
   - You can config node-port/ingress settings in values.yaml in root path.
   - You can connect external database in production environment.
-  - You can specify gitsync function in values.yaml in root path.
+  - You can specify dag gitsync function in values.yaml in root path.
 
 ### ArgoCD trouble-shooting
 #### Chart deploy with values.yaml
