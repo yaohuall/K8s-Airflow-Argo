@@ -31,6 +31,7 @@ terraform {
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
+4. ArgoCD UI port is 30082.
 #### Kubectl and ArgoCD add external cluster and context
 1. Edit kube config file and add certificate info of external cluster to local cluster.
 2. Change context ```kubectl config use-context <your-context>```
